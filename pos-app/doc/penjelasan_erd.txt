@@ -1,0 +1,53 @@
+Berikut penjelasan singkat untuk setiap tabel pada ERD sistem Point of Sale (POS):
+
+1. ROLES
+Menyimpan data peran pengguna, seperti admin atau kasir.
+
+Kolom: id, role_name
+
+2. USERS
+Menyimpan data pengguna sistem, termasuk username, password, dan perannya.
+
+Kolom: id, name, username, password, role_id, created_at
+
+3. SALES
+Menyimpan informasi transaksi penjualan yang dilakukan oleh user.
+
+Kolom: id, user_id, sale_date, total_amount, payment_method, payment_amount, change_amount
+
+4. SALE_DETAILS
+Menyimpan rincian dari setiap transaksi penjualan seperti produk yang dijual, jumlah, harga, dan subtotal.
+
+Kolom: id, sale_id, product_id, quantity, price, subtotal
+
+5. PRODUCTS
+Menyimpan data produk, termasuk kategori, harga, stok, dan pemasok.
+
+Kolom: id, name, category_id, price, stock, supplier_id, created_at
+
+6. CATEGORIES
+Menyimpan kategori produk untuk mengelompokkan produk sesuai jenisnya.
+
+Kolom: id, name
+
+7. SUPPLIERS
+Menyimpan data pemasok produk seperti nama dan kontak.
+
+Kolom: id, name, contact
+
+8. STOCK_ADJUSTMENTS
+Mencatat penyesuaian stok produk di luar transaksi penjualan, misalnya karena retur atau koreksi stok.
+
+Kolom: id, product_id, old_stock, new_stock, reason, adjusted_by, adjusted_at
+
+9. LOGS
+Mencatat aktivitas atau tindakan yang dilakukan oleh pengguna dalam sistem.
+
+Kolom: id, user_id, action, log_time
+
+10. SETTINGS
+Menyimpan konfigurasi sistem dalam bentuk key-value, bisa terkait dengan user tertentu.
+
+Kolom: id, key_name, value, user_id
+
+Setiap tabel saling terhubung untuk membentuk sistem manajemen penjualan yang terintegrasi dan efisien.
